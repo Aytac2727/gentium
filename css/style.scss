@@ -19,20 +19,23 @@ $grey:#1b1b1b;
                     a {
                         position: relative;
 
+
                         &::after {
                             content: '';
                             width: 0;
-                            transition: .5s;
-                        }
-
-                        &:hover::after {
-                            content: '';
-                            position: absolute;
-                            width: 20px;
+                            transition: .3s;
                             height: 2px;
                             left: 9px;
                             bottom: 5px;
                             background-color: $pink;
+                            position: absolute;
+                        }
+
+                        &:hover::after {
+
+
+                            width: 20px;
+
 
                         }
                     }
@@ -81,19 +84,18 @@ $grey:#1b1b1b;
 
                 &::after {
                     content: '';
+                    position: absolute;
                     width: 0;
                     transition: .5s;
-                }
-
-                &:hover::after {
-                    content: '';
-                    position: absolute;
-                    background-color: $pink;
-                    width: 100%;
                     top: 0;
                     bottom: 0;
                     left: 0;
                     z-index: -1;
+                }
+
+                &:hover::after {
+                    background-color: $pink;
+                    width: 100%;
                 }
 
             }
@@ -168,11 +170,11 @@ $grey:#1b1b1b;
 
         .bottom-text-3 {
             background-color: #df1746;
-            width: 100%;
+            width: 96%;
             height: 4em;
             position: absolute;
-            bottom: -20px;
-            right: -15px;
+            bottom: -15px;
+            left: 15px;
 
         }
     }
@@ -181,7 +183,7 @@ $grey:#1b1b1b;
 // top-slider end
 // services
 #services {
-    margin: 6em 0;
+    // margin: 6em 0;
     padding: 2em 0;
 
     .service-head {
@@ -227,7 +229,7 @@ $grey:#1b1b1b;
 // services end
 // works
 #works {
-    margin: 5em 0;
+    // margin: 5em 0;
 
     h1 {
         font-size: 3em;
@@ -265,15 +267,19 @@ $grey:#1b1b1b;
             transition: .5s;
         }
 
-        &:hover::after {
-            position: absolute;
-            content: '';
-            width: 100%;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            background-color: $pink;
-            z-index: -1;
+        &:hover {
+            color: $white;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                background-color: $pink;
+                z-index: -1;
+            }
         }
     }
 }
@@ -282,19 +288,25 @@ $grey:#1b1b1b;
 
 // works2
 #work2 {
-    margin-bottom: 12em;
-    padding-bottom: 7em;
+    // margin-bottom: 12em;
+    // padding-bottom: 7em;
 
     .works-img {
         position: relative;
-        margin-right: 10px;
+        // margin-right: 10px;
+
+        img {
+            filter: grayscale(100%);
+            transition: .5s;
+            
+        }
 
         .work-text {
             color: $white;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            position: absolute;
             opacity: 0;
             transition: .5s;
 
@@ -308,23 +320,19 @@ $grey:#1b1b1b;
             }
         }
 
-        &:hover .work-text {
-            opacity: 1;
-        }
+        &:hover {
+            .work-text {
+                opacity: 1;
+            }
 
-        img {
-            filter: grayscale(100%);
-            position: absolute;
-            transition: .5s;
-            transform: scale(1.1);
-
-            &:hover {
+            img {
                 filter: grayscale(0);
-                transform: scale(1);
+                transform: scale(.8);
             }
         }
     }
 }
+
 
 // about
 
@@ -376,7 +384,7 @@ $grey:#1b1b1b;
     }
 
     .information {
-        margin-top: 2em;
+        // margin-top: 2em;
         padding: 1em 20px;
 
         p {
@@ -390,11 +398,12 @@ $grey:#1b1b1b;
 // clients
 #clients {
     .client-item {
-        h1{
+        h1 {
             font-size: 3em;
             font-weight: bolder;
             position: relative;
             padding-top: 20px;
+
             &::after {
                 content: '';
                 width: 1.1em;
@@ -405,29 +414,90 @@ $grey:#1b1b1b;
                 left: 0;
             }
         }
+
         p {
             color: #747474;
             padding: 2em 0;
             font-size: 23px;
         }
-   
-   .client-img {
-       position: relative;
-       z-index: 1;
-   .add {
-       position: absolute;
-        background-color: $pink;
-        width: 30%;
-        height: 90px;
-        bottom: -20px;
-        right:-20px ;
-        z-index: -1;
-   }
-    }
+
+        .client-img {
+            position: relative;
+            z-index: 1;
+
+            .add {
+                position: absolute;
+                background-color: $pink;
+                width: 30%;
+                height: 90px;
+                bottom: -20px;
+                right: -20px;
+                z-index: -1;
+            }
+        }
     }
 }
 
 // logos
 #logos {
-    
+    margin: 4em 0;
+    padding: 3em 0;
+}
+
+// logos end
+// news
+#news {
+    margin: 4em 0;
+    padding: 2em 0;
+
+    .news-img {
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: $black;
+                opacity: .4;
+                left: 0;
+                top: 0;
+            }
+
+            img {
+                filter: grayscale(0);
+                transform: scale(1.1);
+            }
+
+            .news-text {
+                bottom: 20px;
+
+                i {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img {
+            filter: grayscale(100%);
+            transition: .5s;
+
+        }
+
+        .news-text {
+            position: absolute;
+            color: $white;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            bottom: 10px;
+            font-weight: bolder;
+
+            i {
+                opacity: 0;
+            }
+        }
+    }
 }
